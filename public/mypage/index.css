@@ -1,0 +1,54 @@
+/* 마이페이지 스타일 */
+.user-info,
+.update-nickname {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+h2 {
+  color: #3c763d;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+}
+
+.info-item label {
+  font-weight: bold;
+}
+
+.info-item span {
+  margin-left: 10px;
+}
+
+.update-nickname form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-nickname input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.update-nickname button {
+  padding: 10px;
+  background-color: #3c763d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-nickname button:hover {
+  background-color: #2b542c;
+}
