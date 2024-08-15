@@ -19,19 +19,15 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    shippingName: {
-      type: String,
-      required: true,
-    },
     shippingAddress: {
       type: String,
       required: true,
     },
-    recipientPhoneNum: {
+    shippingPhone: {
       type: String,
       required: true,
     },
-    Products: {
+    productID: {
       type: Array,
       required: true,
     },

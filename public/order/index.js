@@ -57,7 +57,6 @@ const renderCartItems = async () => {
 
   Object.values(groupedCartItems).forEach((cartItem) => {
     const product = productList.find((p) => p.productId === cartItem.productId);
-
     if (product) {
       const itemElem = document.createElement("div");
       itemElem.classList.add("cart-item");
@@ -103,6 +102,7 @@ orderButton.addEventListener("click", async () => {
     shippingName: shippingName.value,
     shippingAddress: shippingAddress.value,
     shippingPhone: shippingPhone.value,
+    productID: localStorage.getItem("cart"),
   };
   //  console.log(user);
   try {

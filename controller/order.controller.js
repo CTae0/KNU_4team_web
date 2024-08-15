@@ -9,7 +9,9 @@ orderController.post("/", async (req, res) => {
     shippingName,
     shippingAddress,
     shippingPhone,
+    productID,
   } = req.body;
+  console.log(productID);
 
   // 필드 검증
   if (
@@ -18,7 +20,8 @@ orderController.post("/", async (req, res) => {
     !ordererPhone ||
     !shippingName ||
     !shippingAddress ||
-    !shippingPhone
+    !shippingPhone ||
+    !productID
   ) {
     return res.status(400).json({
       result: false,
@@ -51,6 +54,7 @@ orderController.post("/", async (req, res) => {
       shippingName,
       shippingAddress,
       shippingPhone,
+      productID,
     };
 
     await createOrder(order);
