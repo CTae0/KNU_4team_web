@@ -83,4 +83,25 @@ userController.post("/", async (req, res) => {
   }
 });
 
+userController.post("/token", async (req, res) => {
+  const token = req.body.getToken;
+  console.log("token", token);
+  if (token) {
+    await jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+      if (error) {
+        return res
+          .status(402)
+          .json({ isVerify: false, message: "사용자 인증에 실패하였습니다." });
+      } else
+        return res.status(200).json({
+          isVerify: true,
+          message: "사용자 인증에 성공하였습니다.",
+          decoded,
+        });
+    });
+  } else {
+    return res.status(404).json({ message: "토큰이 없습니다. " });
+  }
+});
+
 module.exports = userController;

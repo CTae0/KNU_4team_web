@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.right-section a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 30px;
+}
+
+a:link,
+a:visited,
+a:active {
+  color: #333; /* 원하는 기본 색상 */
+  text-decoration: none; /* 밑줄 제거 (선택 사항) */
+}
+
+footer {
+  background-color: #f8faf9;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
+}
+
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 이미지가 main 영역을 넘어가지 않도록 설정 */
+}
+
+.slider {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 100%; /* 부모 요소의 높이에 맞춤 */
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: auto;
+  max-height: calc(
+    100vh - 80px
+  ); /* 화면 높이에서 header와 footer의 높이를 뺀 값 */
+  object-fit: contain; /* 이미지의 비율을 유지하면서 전체 영역에 맞춤 */
+}
+
+.slide.active {
+  display: block;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}

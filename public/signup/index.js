@@ -10,7 +10,7 @@ signupButton.addEventListener("click", async () => {
     password: singupPassword.value,
     nickname: signupNickname.value,
   };
-  console.log(user);
+  //  console.log(user);
   try {
     const signupResult = await fetch("/api/user/", {
       method: "post",

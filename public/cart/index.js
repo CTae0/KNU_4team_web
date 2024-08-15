@@ -101,7 +101,7 @@ const renderCartItems = async () => {
         event.target.value = product.stock;
         return;
       }
-
+      // 장바구니 수량 업데이트
       updateCartItemQuantity(productId, newQuantity);
       await updateCartSummary();
     });
@@ -149,6 +149,7 @@ const updateCartSummary = async () => {
 
 document.getElementById("checkout-button").addEventListener("click", () => {
   alert("구매하기 버튼이 클릭되었습니다.");
+  window.location.href = "/order";
 });
 
 renderCartItems();

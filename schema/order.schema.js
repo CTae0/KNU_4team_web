@@ -1,9 +1,9 @@
 const mongoose = require("../db_init");
 const { String } = mongoose.Schema.Types;
-
 const orderSchema = new mongoose.Schema(
   {
     ordererName: {
+      //user
       type: String,
       required: true,
     },
@@ -11,16 +11,28 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    ordererPhoneNumber: {
+    ordererPhone: {
       type: String,
       required: true,
     },
-    ordererAddress: {
+    shippingName: {
       type: String,
       required: true,
     },
-    ordererThink: {
+    shippingName: {
       type: String,
+      required: true,
+    },
+    shippingAddress: {
+      type: String,
+      required: true,
+    },
+    recipientPhoneNum: {
+      type: String,
+      required: true,
+    },
+    Products: {
+      type: Array,
       required: true,
     },
   },

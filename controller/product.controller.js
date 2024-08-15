@@ -1,4 +1,3 @@
-//product.controller.js 코드입니다.
 const Product = require("../schema/product.schema");
 const { getProductList } = require("../service/product.service");
 const productController = require("express").Router();
