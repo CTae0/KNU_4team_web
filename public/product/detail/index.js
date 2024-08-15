@@ -143,8 +143,9 @@ const renderProductList = async () => {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
+    // 알림 표시 및 장바구니 페이지로 이동
     alert("장바구니 페이지로 이동합니다.");
-    window.location.href = "/cart";
+    window.location.href = "/cart"; // 장바구니 페이지로 리디렉션
   });
 };
 
