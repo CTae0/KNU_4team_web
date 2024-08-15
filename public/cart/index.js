@@ -148,7 +148,7 @@ const updateCartSummary = async () => {
 };
 
 document.getElementById("checkout-button").addEventListener("click", () => {
-  alert("구매하기 버튼이 클릭되었습니다.");
+  window.location.href = "/order";
 });
 
 renderCartItems();
