@@ -1,4 +1,3 @@
-//index.js
 const signinEmail = document.getElementById("signin_email");
 const signinPassword = document.getElementById("signin_password");
 const signinButton = document.getElementById("signin_button");
@@ -14,12 +13,10 @@ signinButton.addEventListener("click", async () => {
         "Content-Type": "application/json",
       },
     });
-
     if (signinResult.ok) {
       const result = await signinResult.json();
-      console.log("로그인 성공", result);
+      console.log(result);
       localStorage.setItem("token", result.token);
-      localStorage.setItem("user", signinEmail);
     } else {
       alert("(!)로그인 오류");
     }
