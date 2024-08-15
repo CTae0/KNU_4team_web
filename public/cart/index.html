@@ -5,7 +5,15 @@
     <script src="./index.js" defer></script>
   </head>
   <body>
-    <div>장바구니 페이지</div>
-    <div id="cart-items"></div>
+    <div class="cart-container">
+      <div id="cart-items" class="cart-items">
+        <!-- 장바구니 항목들이 여기에 렌더링됩니다. -->
+      </div>
+      <div id="cart-summary" class="cart-summary">
+        <div id="total-price">총 가격: 0 원</div>
+        <div id="total-quantity">총 상품 갯수: 0 개</div>
+        <button id="checkout-button">구매하기</button>
+      </div>
+    </div>
   </body>
 </html>
