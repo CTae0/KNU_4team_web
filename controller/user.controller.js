@@ -76,9 +76,9 @@ userController.post("/", async (req, res) => {
   };
   try {
     await createUser(user);
-    return true;
+    return res.status(201).json({ result: true, message: "회원가입 성공!" });
   } catch (err) {
-    return false;
+    return res.status(400).json({ result: false, message: "회원가입 실패!" });
   }
 });
 
