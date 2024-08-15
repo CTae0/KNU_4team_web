@@ -1,15 +1,15 @@
 const User = require("../schema/user.schema");
-// user = {email: "", nickname: "", password: ""}
+
 const createUser = async (user) => {
   try {
-    const createdUser = await User.create(user);
-    console.log(createdUser);
+    const createUser = await User.create(user);
+    console.log(createUser);
   } catch (err) {
     console.log(err);
   }
 };
 
-const getUser = async (email, password) => {
+const getUser = async (email, password, token) => {
   const user = await User.findOne({});
 };
 

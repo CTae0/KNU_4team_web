@@ -150,17 +150,6 @@ const renderProductList = async () => {
       return;
     }
 
-    // 상품이 이미 장바구니에 있는 경우 수량 업데이트
-    if (existingProductIndex > -1) {
-      cart[existingProductIndex].quantity = totalQuantityInCart;
-    } else {
-      // 새로운 상품인 경우 추가
-      cart.push({
-        productId: v.productId,
-        quantity: quantity,
-      });
-    }
-
     // 로컬 스토리지에 장바구니 저장
     localStorage.setItem("cart", JSON.stringify(cart));
 

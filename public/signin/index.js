@@ -13,11 +13,14 @@ signinButton.addEventListener("click", async () => {
         "Content-Type": "application/json",
       },
     });
+
     if (signinResult.ok) {
       const result = await signinResult.json();
-      console.log(result);
+      console.log("로그인 성공", result);
       localStorage.setItem("token", result.token);
     } else {
+      console.error(err);
+
       alert("(!)로그인 오류");
     }
   } catch (err) {
