@@ -72,7 +72,7 @@ const renderCartItems = async () => {
           <div>
             <div>상품명: ${product.title}</div>
             <div>가격: ${product.price} 원</div>
-            <div>상세설명: ${product.description}</div>
+            <a href="/product/detail?productId=${product.productId}" > 상세설명: ${product.description} </a>
             <div>
               선택한 수량: 
               <input type="number" class="quantity-input" data-product-id="${product.productId}" value="${cartItem.quantity}" min="1" max="${product.stock}" style="width: 60px;" />

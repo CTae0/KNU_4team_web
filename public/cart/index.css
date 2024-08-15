@@ -11,6 +11,13 @@ body {
   padding: 20px;
 }
 
+a:link,
+a:visited,
+a:active {
+  color: #333; /* 원하는 기본 색상 */
+  text-decoration: none; /* 밑줄 제거 (선택 사항) */
+}
+
 .cart-items {
   flex: 2;
   max-width: 70%;

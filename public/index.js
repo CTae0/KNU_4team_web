@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const logoutButton = document.querySelector(".logout");
   logoutButton.addEventListener("click", async () => {
     await localStorage.removeItem("token");
+    await localStorage.removeItem("cart");
     alert("로그아웃에 성공하였습니다.");
     location.reload();
   });

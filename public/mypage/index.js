@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   logoutButton.addEventListener("click", async () => {
     // 실제 로그아웃 로직 (서버와 통신 필요)
     await localStorage.removeItem("token");
+    await localStorage.removeItem("cart");
     alert("로그아웃 하였습니다.");
     window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
   });
