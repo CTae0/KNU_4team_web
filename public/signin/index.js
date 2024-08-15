@@ -18,6 +18,7 @@ signinButton.addEventListener("click", async () => {
       const result = await signinResult.json();
       console.log("로그인 성공", result);
       localStorage.setItem("token", result.token);
+      window.location.href = "../";
     } else {
       console.error(err);
 
