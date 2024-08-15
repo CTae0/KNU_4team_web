@@ -99,7 +99,9 @@ userController.post("/token", async (req, res) => {
         });
     });
   } else {
-    return res.status(404).json({ message: "토큰이 없습니다. " });
+    return res
+      .status(404)
+      .json({ isVerify: false, message: "토큰이 없습니다. " });
   }
 });
 

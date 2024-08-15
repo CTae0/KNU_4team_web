@@ -10,15 +10,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     if (tokenCheck.ok) {
       const result = await tokenCheck.json();
+      console.log(result.isVerify);
       if (!result.isVerify) {
+        alert("로그인 후 이용해주세요.");
         window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
       }
       console.log(result);
     } else {
-      //   alert("(!)로그인 오류");
+      alert("로그인 후 이용해주세요.");
+      window.location.href = "http://localhost:8000/signin/";
     }
   } catch (err) {
-    console.error(err);
+    console.log(err);
     alert("(!) 로그인 오류");
     window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
   }
