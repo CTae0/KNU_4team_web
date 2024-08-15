@@ -28,6 +28,13 @@ const updateCartItemQuantity = (productId, newQuantity) => {
   }
 };
 
+const removeCartItem = (productId) => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart = cart.filter((item) => item.productId !== productId);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCartItems(); // Re-render cart items after removal
+};
+
 const renderCartItems = async () => {
   const productList = await fetchProductList();
   if (!productList) {
@@ -40,6 +47,7 @@ const renderCartItems = async () => {
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = "<p>장바구니가 비어 있습니다.</p>";
+    updateCartSummary(0, 0); // Update the total price and quantity to 0
     return;
   }
 
@@ -60,9 +68,9 @@ const renderCartItems = async () => {
 
     if (product) {
       const itemElem = document.createElement("div");
+      itemElem.classList.add("cart-item");
       itemElem.innerHTML = `
-          <div class="cart-item" style="display: flex; align-items: center; margin-bottom: 20px;">
-            <img src="${product.imgUrl}" alt="${product.title}" style="width: 100px; height: auto; margin-right: 20px;" />
+            <img src="${product.imgUrl}" alt="${product.title}" />
             <div>
               <div>상품명: ${product.title}</div>
               <div>가격: ${product.price} 원</div>
@@ -71,10 +79,9 @@ const renderCartItems = async () => {
                 선택한 수량: 
                 <input type="number" class="quantity-input" data-product-id="${product.productId}" value="${cartItem.quantity}" min="1" max="${product.stock}" style="width: 60px;" />
               </div>
+              <button class="remove-button" data-product-id="${product.productId}">X</button>
             </div>
-          </div>
-          <hr />
-        `;
+          `;
       cartItemsContainer.appendChild(itemElem);
     }
   });
@@ -102,6 +109,52 @@ const renderCartItems = async () => {
       updateCartItemQuantity(productId, newQuantity);
     });
   });
+
+  // 항목 삭제 기능 이벤트 리스너
+  document.querySelectorAll(".remove-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const productId = parseInt(event.target.getAttribute("data-product-id"));
+      removeCartItem(productId);
+    });
+  });
+
+  // 총 가격 및 상품 갯수 업데이트
+  updateCartSummary();
 };
+
+const updateCartSummary = async () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const productList = await fetchProductList();
+
+  if (!productList) {
+    document.getElementById("total-price").textContent = "총 가격: 0 원";
+    document.getElementById("total-quantity").textContent =
+      "총 상품 갯수: 0 개";
+    return;
+  }
+
+  let totalPrice = 0;
+  let totalQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    const product = productList.find((p) => p.productId === cartItem.productId);
+    if (product) {
+      totalPrice += product.price * cartItem.quantity;
+      totalQuantity += cartItem.quantity;
+    }
+  });
+
+  document.getElementById(
+    "total-price"
+  ).textContent = `총 가격: ${totalPrice} 원`;
+  document.getElementById(
+    "total-quantity"
+  ).textContent = `총 상품 갯수: ${totalQuantity} 개`;
+};
+
+document.getElementById("checkout-button").addEventListener("click", () => {
+  // Handle checkout logic here
+  alert("구매하기 버튼이 클릭되었습니다.");
+});
 
 renderCartItems();
