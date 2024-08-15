@@ -1,18 +1,12 @@
+//product.controller.js 코드입니다.
+const Product = require("../schema/product.schema");
+const { getProductList } = require("../service/product.service");
 const productController = require("express").Router();
 
-const dummyData = Array.from({ length: 30 }, (_, index) => {
-  const product = {
-    title: `product-title-${index + 1}`,
-    description: `product-description-${index + 1}`,
-    imgUrl: `https://picsum.photos/id/${index + 1}/200/300`,
-    price: Math.floor(Math.random() * 90000 + 10000),
-    stock: Math.ceil(Math.random() * 100),
-  };
-  return product;
-});
-
-productController.get("/", (req, res) => {
-  return res.json({ result: true, data: dummyData });
+productController.get("/", async (req, res) => {
+  const productList = await getProductList();
+  console.log(productList);
+  return res.json({ result: true, data: productList });
 });
 
 module.exports = productController;
