@@ -71,10 +71,11 @@ body {
   background: none;
   cursor: pointer;
   font-size: 18px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .cart-item .remove-button:hover {
-  text-decoration: underline;
+  transform: scale(1.7);
 }
 
 #checkout-button {

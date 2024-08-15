@@ -32,7 +32,7 @@ const removeCartItem = (productId) => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart = cart.filter((item) => item.productId !== productId);
   localStorage.setItem("cart", JSON.stringify(cart));
-  renderCartItems(); // Re-render cart items after removal
+  renderCartItems();
 };
 
 const renderCartItems = async () => {
@@ -47,11 +47,10 @@ const renderCartItems = async () => {
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = "<p>장바구니가 비어 있습니다.</p>";
-    updateCartSummary(0, 0); // Update the total price and quantity to 0
+    updateCartSummary(0, 0);
     return;
   }
 
-  // 장바구니 항목 그룹화
   const groupedCartItems = cart.reduce((acc, item) => {
     if (!acc[item.productId]) {
       acc[item.productId] = { ...item };
@@ -61,8 +60,7 @@ const renderCartItems = async () => {
     return acc;
   }, {});
 
-  // 장바구니 항목 렌더링
-  cartItemsContainer.innerHTML = ""; // Clear previous content
+  cartItemsContainer.innerHTML = "";
   Object.values(groupedCartItems).forEach((cartItem) => {
     const product = productList.find((p) => p.productId === cartItem.productId);
 
@@ -86,9 +84,8 @@ const renderCartItems = async () => {
     }
   });
 
-  // 수량 조절 기능 이벤트 리스너
   document.querySelectorAll(".quantity-input").forEach((input) => {
-    input.addEventListener("change", (event) => {
+    input.addEventListener("change", async (event) => {
       const productId = parseInt(event.target.getAttribute("data-product-id"));
       const newQuantity = parseInt(event.target.value);
 
@@ -105,12 +102,11 @@ const renderCartItems = async () => {
         return;
       }
 
-      // 장바구니 수량 업데이트
       updateCartItemQuantity(productId, newQuantity);
+      await updateCartSummary();
     });
   });
 
-  // 항목 삭제 기능 이벤트 리스너
   document.querySelectorAll(".remove-button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const productId = parseInt(event.target.getAttribute("data-product-id"));
@@ -118,8 +114,7 @@ const renderCartItems = async () => {
     });
   });
 
-  // 총 가격 및 상품 갯수 업데이트
-  updateCartSummary();
+  await updateCartSummary();
 };
 
 const updateCartSummary = async () => {
@@ -153,7 +148,6 @@ const updateCartSummary = async () => {
 };
 
 document.getElementById("checkout-button").addEventListener("click", () => {
-  // Handle checkout logic here
   alert("구매하기 버튼이 클릭되었습니다.");
 });
 
