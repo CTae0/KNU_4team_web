@@ -7,7 +7,7 @@ body {
   background-color: #f5f5f5;
 }
 
-.signin-container {
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ body {
   height: 100%;
 }
 
-.signin-box {
+.signup-box {
   background-color: white;
   padding: 40px;
   border-radius: 10px;
@@ -24,7 +24,7 @@ body {
   text-align: center;
 }
 
-.signin-box input {
+.signup-box input {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
@@ -33,7 +33,7 @@ body {
   font-size: 14px;
 }
 
-.signin-box button {
+.signup-box button {
   width: 100%;
   padding: 15px;
   background-color: #007bff;
@@ -44,6 +44,6 @@ body {
   cursor: pointer;
 }
 
-.signin-box button:hover {
+.signup-box button:hover {
   background-color: #0f08cf;
 }
