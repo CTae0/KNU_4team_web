@@ -11,17 +11,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (tokenCheck.ok) {
       const result = await tokenCheck.json();
       if (!result.isVerify) {
-        window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+        //      window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
       }
       console.log(result);
     } else {
-      alert("(!)로그인 오류");
-      window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+      //   alert("(!)로그인 오류");
     }
   } catch (err) {
     console.error(err);
-    alert("(!) 로그인 오류");
-    window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+
+    //  alert("(!) 로그인 오류");
+    // window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
   }
   // api call
   // ---> token 인증 결과값을 {isVerifed: boolean}
