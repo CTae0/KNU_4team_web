@@ -55,11 +55,48 @@
       /><br /><br />
     </div>
 
+    <h2>결제 수단</h2>
+    <div class="payment-method">
+      <label>
+        <input type="radio" name="payment-method" value="toss" />
+        <img
+          src="https://image.msscdn.net/musinsaUI/store/order/finance/logo-finance-toss.png"
+          alt="Toss Pay"
+          style="width: 30px; height: auto; margin-right: 10px"
+        />
+        토스페이 </label
+      ><br />
+      <label>
+        <input type="radio" name="payment-method" value="kakao" />
+        <img
+          src="https://image.msscdn.net/musinsaUI/store/order/finance/logo-finance-kakaopay.png"
+          alt="Kakao Pay"
+          style="width: 30px; height: auto; margin-right: 10px"
+        />
+        카카오페이 </label
+      ><br />
+      <label>
+        <input type="radio" name="payment-method" value="card" />
+        카드결제 </label
+      ><br />
+      <label>
+        <input type="radio" name="payment-method" value="other" />
+        기타 결제 </label
+      ><br /><br />
+    </div>
+
     <h2>상품 정보</h2>
     <div id="cart-items"></div>
 
     <div id="total-amount"></div>
 
-    <button id="payment-button">결제하기</button>
+    <div class="order-confirmation">
+      <label>
+        <input type="checkbox" id="order-confirmation" />
+        주문 내용을 확인했으며 결제에 동의합니다.
+      </label>
+    </div>
+
+    <button id="payment-button" disabled>결제하기</button>
   </body>
 </html>

@@ -33,6 +33,39 @@ input[type="email"] {
   color: #333;
 }
 
+.orderer-info,
+.shipping-info {
+  margin-bottom: 20px;
+}
+
+.orderer-info input,
+.shipping-info input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.payment-method {
+  margin-bottom: 20px;
+}
+
+.payment-method label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-confirmation {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.order-confirmation label {
+  font-size: 16px;
+}
+
 #payment-button {
   margin-top: 20px;
   padding: 15px 20px;
@@ -47,6 +80,11 @@ input[type="email"] {
   transition: background-color 0.3s ease;
 }
 
-#payment-button:hover {
+#payment-button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+#payment-button:hover:not(:disabled) {
   background-color: #0f08cf;
 }

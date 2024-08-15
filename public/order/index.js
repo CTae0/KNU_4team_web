@@ -54,16 +54,17 @@ const renderCartItems = async () => {
       totalAmount += itemTotalPrice;
 
       itemElem.innerHTML = `
-            <div>
-              <h3>상품명: ${product.title}</h3>
-              <img src="${product.imgUrl}" alt="${product.title}" style="width: 100px; height: auto; margin-right: 20px;" />
-              <p>가격: ${product.price} 원</p>
-              <p>상세설명: ${product.description}</p>
-              <p>구매 수량: ${cartItem.quantity} 개</p>
-              <p>총 가격: ${itemTotalPrice} 원</p>
-            </div>
-            <hr />
-          `;
+              <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <img src="${product.imgUrl}" alt="${product.title}" style="width: 100px; height: auto; margin-right: 20px;" />
+                <div>
+                  <h3>${product.title}</h3>
+                  <p>가격: ${product.price} 원</p>
+                  <p>구매 수량: ${cartItem.quantity} 개</p>
+                  <p>총 가격: ${itemTotalPrice} 원</p>
+                </div>
+              </div>
+              <hr />
+            `;
       cartItemsContainer.appendChild(itemElem);
     }
   });
@@ -71,6 +72,14 @@ const renderCartItems = async () => {
   document.getElementById(
     "total-amount"
   ).textContent = `전체 총 가격: ${totalAmount} 원`;
+
+  const orderConfirmationCheckbox =
+    document.getElementById("order-confirmation");
+  const paymentButton = document.getElementById("payment-button");
+
+  orderConfirmationCheckbox.addEventListener("change", () => {
+    paymentButton.disabled = !orderConfirmationCheckbox.checked;
+  });
 };
 
 renderCartItems();
