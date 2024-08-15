@@ -61,3 +61,16 @@
   background-color: #007bff;
   color: #fff;
 }
+
+.quantity-container {
+  margin-bottom: 20px;
+}
+
+.quantity-container label {
+  margin-right: 10px;
+}
+
+.quantity-container input {
+  width: 60px;
+  text-align: center;
+}
