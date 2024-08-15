@@ -115,6 +115,8 @@ orderButton.addEventListener("click", async () => {
     });
     if (orderResult.ok) {
       console.log(order);
+      window.location.href = "../";
+      localStorage.removeItem("cart");
       alert("주문 성공");
     } else {
       alert("(!)주문 실패");

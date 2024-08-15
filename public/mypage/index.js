@@ -13,17 +13,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log(result.isVerify);
       if (!result.isVerify) {
         alert("로그인 후 이용해주세요.");
-        window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+        window.location.href = "../signin"; // 로그인 페이지로 리다이렉트
       }
       console.log(result);
     } else {
       alert("로그인 후 이용해주세요.");
-      window.location.href = "http://localhost:8000/signin/";
+      window.location.href = "../signin/";
     }
   } catch (err) {
     console.log(err);
     alert("(!) 로그인 오류");
-    window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+    window.location.href = "../signin/"; // 로그인 페이지로 리다이렉트
   }
   // api call
   // ---> token 인증 결과값을 {isVerifed: boolean}
@@ -62,6 +62,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     await localStorage.removeItem("token");
     await localStorage.removeItem("cart");
     alert("로그아웃 하였습니다.");
-    window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+    window.location.href = "../signin/"; // 로그인 페이지로 리다이렉트
   });
 });
