@@ -1,11 +1,27 @@
 <html>
   <head>
+    <title>회원가입</title>
+    <link rel="stylesheet" href="./index.css" />
     <script src="./index.js" defer></script>
   </head>
   <body>
-    <input id="signup_email" placeholder="email" />
-    <input id="signup_nickname" placeholder="nickname" />
-    <input id="signup_password" type="password" placeholder="password" />
-    <button id="signup_button">회원가입</button>
+    <div class="signup-container">
+      <div class="signup-box">
+        <div>
+          <input id="signup_email" placeholder="Enter Email Address" />
+        </div>
+        <div>
+          <input id="signup_nickname" placeholder="Enter Nickname" />
+        </div>
+        <div>
+          <input
+            id="signup_password"
+            type="password"
+            placeholder="Enter Password"
+          />
+        </div>
+        <button id="signup_button">회원가입</button>
+      </div>
+    </div>
   </body>
 </html>

@@ -20,6 +20,7 @@ signupButton.addEventListener("click", async () => {
       },
     });
     if (signupResult.ok) {
+      console.log(user);
       alert("회원가입 성공");
     } else {
       alert("(!)회원가입 실패");
