@@ -104,7 +104,6 @@ const renderCartItems = async () => {
         event.target.value = product.stock;
         return;
       }
-
       // 장바구니 수량 업데이트
       updateCartItemQuantity(productId, newQuantity);
     });
