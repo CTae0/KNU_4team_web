@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (result.isVerify) {
         document.querySelector(".signup").style.display = "none";
         document.querySelector(".login").style.display = "none";
+        document.querySelector(".cart").style.display = "block";
         document.querySelector(".mypage").style.display = "block";
         document.querySelector(".logout").style.display = "block";
       }
@@ -57,5 +58,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     await localStorage.removeItem("token");
     alert("로그아웃에 성공하였습니다.");
     location.reload();
+  });
+
+  const logoButton = document.querySelector(".logo");
+  logoButton.addEventListener("click", async () => {
+    await window.location.reload();
   });
 });

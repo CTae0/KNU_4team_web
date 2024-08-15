@@ -26,6 +26,7 @@ const renderProductList = async () => {
     console.log("empty productList");
     return;
   }
+
   const queryString = window.location.search;
   const productNumberMatch = queryString.match(/\d+/);
   const productNumber = productNumberMatch ? productNumberMatch[0] : "";

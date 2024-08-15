@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (tokenCheck.ok) {
       const result = await tokenCheck.json();
       if (!result.isVerify) {
-        //      window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+        window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
       }
       console.log(result);
     } else {
@@ -19,9 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   } catch (err) {
     console.error(err);
-
-    //  alert("(!) 로그인 오류");
-    // window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
+    alert("(!) 로그인 오류");
+    window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
   }
   // api call
   // ---> token 인증 결과값을 {isVerifed: boolean}
@@ -55,9 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // 로그아웃 버튼 클릭 이벤트
-  logoutButton.addEventListener("click", () => {
+  logoutButton.addEventListener("click", async () => {
     // 실제 로그아웃 로직 (서버와 통신 필요)
-    alert("Logged out successfully!");
+    await localStorage.removeItem("token");
+    alert("로그아웃 하였습니다.");
     window.location.href = "http://localhost:8000/signin/"; // 로그인 페이지로 리다이렉트
   });
 });

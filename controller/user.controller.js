@@ -17,7 +17,6 @@ userController.post("/signin", async (req, res) => {
   }
   // email을 기준으로 DB에서 유저 데이터를 꺼내와야 함
   const user = await getUserByEmail(email);
-
   console.log("유저정보", user);
 
   if (!user)

@@ -13,6 +13,10 @@ const getUser = async (email, password, token) => {
   const user = await User.findOne({});
 };
 
+const getUserByToken = async (token) => {
+  const user = await User.findOne({ token });
+};
+
 const getUserByEmail = async (email) => {
   try {
     const user = await User.findOne({ email });
