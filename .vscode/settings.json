@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.maxTokenizationLineLength": 100
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

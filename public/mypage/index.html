@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+    <title>마이 페이지</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>마이 페이지</h1>
+      <div class="info">
+        <p>이메일: <span id="user_email">example@example.com</span></p>
+        <p>이름: <span id="user_nickname">UserNickname</span></p>
+      </div>
+      <div class="form-group">
+        <label for="new_nickname">이름 변경</label>
+        <input
+          id="new_nickname"
+          type="text"
+          placeholder="새 이름을 입력해주세요"
+        />
+        <button id="change_nickname_button">이름 변경</button>
+      </div>
+      <div class="logout">
+        <button id="logout_button">로그아웃</button>
+      </div>
+    </div>
+  </body>
+</html>
